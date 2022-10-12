@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <form action="" id="toDoForm" class="toDoClass">
+      <label for="toDo" class="toDoForm-label"></label>
+      <input
+        type="text"
+        id="toDo"
+        class="toDoForm-toDo"
+        name="toDo"
+        placeholder="What do you need to do?"
+      />
+      <button id="toDoForm-button" class="toDoForm-button">
+        Add this to your to do list
+      </button>
+    </form>
+
+    <!-- todo list results go here -->
+    <!-- tool tips for the buttons would be nice -->
+    <section id="toDoList" class="toDoList"></section>
+
+    <script src="app.js"></script>
+  </body>
+</html>

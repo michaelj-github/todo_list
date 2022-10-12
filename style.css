@@ -1,0 +1,15 @@
+body {
+  margin: 1%;
+  padding: 1%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.toDo-button {
+  width: 30px;
+  font-weight: 600;
+}
+
+.toDoForm-toDo {
+  margin-bottom: 4px;
+  width: 200px;
+}
