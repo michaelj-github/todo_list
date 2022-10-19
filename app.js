@@ -7,24 +7,31 @@ const createToDoItem = (toDo, done = "none") => {
   const toDoItemDoneButton = document.createElement("button");
   toDoItemDoneButton.innerHTML = "&#8212";
   toDoItemDoneButton.style.margin = "0 8px 0 0";
-  toDoItemDoneButton.addEventListener("click", () => {
-    toDoItemDoneButton.parentElement.classList.toggle("lineThrough");
+  toDoItemDoneButton.addEventListener("click", (e) => {
+    e.target.parentElement.style.textDecoration =
+      e.target.parentElement.style.textDecoration === "line-through"
+        ? (e.target.parentElement.style.textDecoration = "none")
+        : (e.target.parentElement.style.textDecoration = "line-through");
+    setLocalStorage();
   });
   const toDoItemRemoveButton = document.createElement("button");
   toDoItemRemoveButton.innerText = "X";
   toDoItemRemoveButton.addEventListener("click", () => {
     toDoItemRemoveButton.parentElement.remove();
+    setLocalStorage();
   });
   toDoItem.innerText = toDo;
-  toDoItem.classList.add(done);
+  toDoItem.style.textDecoration = done;
   toDoItem.prepend(toDoItemDoneButton);
   toDoItem.prepend(toDoItemRemoveButton);
   toDoList.append(toDoItem);
 };
 
 const getLocalStorage = () => {
-  for (e of JSON.parse(localStorage.toDoArray)) {
-    createToDoItem(e[0], e[1]);
+  if (localStorage.length > 0) {
+    for (e of JSON.parse(localStorage.toDoArray)) {
+      createToDoItem(e[0], e[1]);
+    }
   }
 };
 
@@ -35,7 +42,7 @@ const setLocalStorage = () => {
   for (i = 0; i < theToDoItems.length; i++) {
     theToDoItemsArray.push([
       theToDoItems[i].innerText.slice(2),
-      theToDoItems[i].classList[0] || "none",
+      theToDoItems[i].style.textDecoration,
     ]);
   }
   localStorage.toDoArray = JSON.stringify(theToDoItemsArray);
