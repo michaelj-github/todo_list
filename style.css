@@ -1,15 +1,28 @@
-body {
-  margin: 1%;
-  padding: 1%;
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.toDo-button {
-  width: 30px;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.toDoList {
+  margin: 8px;
+}
+
+.toDoList button {
+  width: 20px;
   font-weight: 600;
 }
 
-.toDoForm-toDo {
-  margin-bottom: 4px;
-  width: 200px;
+.toDoList p {
+  margin: 4px;
+}
+
+.lineThrough {
+  text-decoration: line-through;
 }
